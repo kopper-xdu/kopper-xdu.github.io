@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title>My New Post</title>
-    <link href="/2022/08/18/My-New-Post/"/>
-    <url>/2022/08/18/My-New-Post/</url>
+    <title>理解 diffusion model</title>
+    <link href="/2022/08/19/%E7%90%86%E8%A7%A3-diffusion-model/"/>
+    <url>/2022/08/19/%E7%90%86%E8%A7%A3-diffusion-model/</url>
     
-    <content type="html"><![CDATA[<h3 id="test"><a href="#test" class="headerlink" title="test"></a>test</h3>]]></content>
+    <content type="html"><![CDATA[<p>挖个坑，讲讲自己对 diffusion 模型的理解</p>]]></content>
     
     
     
