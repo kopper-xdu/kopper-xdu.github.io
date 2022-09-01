@@ -16,21 +16,24 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-    <meta name="description" content="挖个坑，讲讲自己对 diffusion 模型的理解">
+    <meta name="description" content="神经网络的反向传播算法一、前置知识1.Logistic回归算法目标：将给定的数据进行分类 输入：$ \pmb{x}\in \mathbb{R}^n $，输出：$ y\in {0,1} $ 模型：$ P(\pmb{x}) &#x3D; sigmoid(w^Tx+b), w\in \mathbb{R}^n, x\in \mathbb{R}^n, b\in \mathbb{R} $ 模型的训练:通过极大化对数似然">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解 diffusion model">
-<meta property="og:url" content="http://example.com/2022/08/19/%E7%90%86%E8%A7%A3-diffusion-model/index.html">
+<meta property="og:title" content="神经网络反向传播算法推导">
+<meta property="og:url" content="http://example.com/2022/09/01/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="挖个坑，讲讲自己对 diffusion 模型的理解">
+<meta property="og:description" content="神经网络的反向传播算法一、前置知识1.Logistic回归算法目标：将给定的数据进行分类 输入：$ \pmb{x}\in \mathbb{R}^n $，输出：$ y\in {0,1} $ 模型：$ P(\pmb{x}) &#x3D; sigmoid(w^Tx+b), w\in \mathbb{R}^n, x\in \mathbb{R}^n, b\in \mathbb{R} $ 模型的训练:通过极大化对数似然">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-19T09:43:09.000Z">
-<meta property="article:modified_time" content="2022-08-19T09:44:07.536Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kopper-xdu/image/nn.svg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kopper-xdu/image/nn1.svg">
+<meta property="article:published_time" content="2022-09-01T06:31:09.000Z">
+<meta property="article:modified_time" content="2022-09-01T06:31:42.202Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kopper-xdu/image/nn.svg">
   
   
   
-  <title>理解 diffusion model - Hexo</title>
+  <title>神经网络反向传播算法推导 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -195,7 +198,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="理解 diffusion model"></span>
+            <span id="subtitle" data-typed-text="神经网络反向传播算法推导"></span>
           
         </div>
 
@@ -206,8 +209,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-19 17:43" pubdate>
-          August 19, 2022 pm
+        <time datetime="2022-09-01 14:31" pubdate>
+          September 1, 2022 pm
         </time>
       </span>
     
@@ -218,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          23 words
+          4.7k words
         
       </span>
     
@@ -229,7 +232,7 @@
         
         
         
-          1 mins
+          40 mins
         
       </span>
     
@@ -267,12 +270,38 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">理解 diffusion model</h1>
+            <h1 style="display: none">神经网络反向传播算法推导</h1>
             
             
               <div class="markdown-body">
                 
-                <p>挖个坑，讲讲自己对 diffusion 模型的理解</p>
+                <h1 id="神经网络的反向传播算法"><a href="#神经网络的反向传播算法" class="headerlink" title="神经网络的反向传播算法"></a>神经网络的反向传播算法</h1><h2 id="一、前置知识"><a href="#一、前置知识" class="headerlink" title="一、前置知识"></a>一、前置知识</h2><h3 id="1-Logistic回归算法"><a href="#1-Logistic回归算法" class="headerlink" title="1.Logistic回归算法"></a>1.Logistic回归算法</h3><p>目标：将给定的数据进行分类</p>
+<p>输入：$ \pmb{x}\in \mathbb{R}^n $，输出：$ y\in {0,1} $</p>
+<p>模型：$ P(\pmb{x}) = sigmoid(w^Tx+b), w\in \mathbb{R}^n, x\in \mathbb{R}^n, b\in \mathbb{R} $</p>
+<p>模型的训练:通过极大化对数似然函数：</p>
+<p>$$<br>\begin{aligned}<br>-L(\pmb{w}) = \frac 1 m \sum_{i = 1}^m y^ilog(P(\pmb{x}^i)) + (1-y^i)log(1-P(\pmb{x}^i))<br>\end{aligned}<br>$$</p>
+<p>即最小化：</p>
+<p>$$<br>\begin{aligned}<br>L(\pmb{w}) = -\frac 1 m \sum_{i = 1}^m y^ilog(P(\pmb{x}^i)) + (1-y^i)log(1-P(\pmb{x}^i))<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\frac{\partial}{\partial \pmb{w}}L(\pmb{w}) = \frac 1 m \sum_{i = 1}^m(P(\pmb{x^i}) - y^i)\pmb{x^i}<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\frac{\partial}{\partial b}L(\pmb{w}) = \frac 1 m \sum_{i = 1}^mP(\pmb{x^i})-y^i<br>\end{aligned}<br>$$</p>
+<p>更新参数：</p>
+<p>$$<br>\begin{aligned}<br>\pmb{w} = \pmb{w} - \alpha \frac{\partial}{\partial \pmb{w}}L(\pmb{w})<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>b = b - \alpha \frac{\partial}{\partial b}L(\pmb{w})<br>\end{aligned}<br>$$</p>
+<hr>
+<h3 id="2-神经网络的前向传播"><a href="#2-神经网络的前向传播" class="headerlink" title="2.神经网络的前向传播"></a>2.神经网络的前向传播</h3><img title="" src="https://cdn.jsdelivr.net/gh/kopper-xdu/image/nn.svg" srcset="/img/loading.gif" lazyload width="628">
+
+<p>输入层为$ X\in \mathbb{R}^{m\times 5} $, 第一层权重矩阵$ W^1\in \mathbb{R}^{3\times 5} $, 第二层权重矩阵$ W^2\in \mathbb{R}^{1\times 3} $<br>前向传播：$ \pmb{z^1} = \pmb{X(W^1)^T} , \pmb{a^1} = sigmoid(\pmb{z^1}), \pmb{z^2} = \pmb{a^1(W^2)^T}, \pmb{a^2} = sigmoid(\pmb{z^2}) $<br>注：忽略偏置单元</p>
+<hr>
+<h2 id="二、反向传播算法"><a href="#二、反向传播算法" class="headerlink" title="二、反向传播算法"></a>二、反向传播算法</h2><h3 id="1-标量形式推导"><a href="#1-标量形式推导" class="headerlink" title="1.标量形式推导"></a>1.标量形式推导</h3><p>$$<br>\begin{aligned}<br>L = -\frac 1 m \sum_{k = 1}^m y_klog(a^2_k) + (1-y_k)log(1-a^2_k))<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned} \<br>\frac{\partial L}{\partial W^2_{ij}} &amp;= \frac{\partial L}{\partial z^2_i} \frac{\partial z^2_i}{\partial W^2_{ij}} \<br>&amp;= \frac{\partial L}{\partial a^2_i}\frac{\partial a^2_i}{\partial z^2_i}\frac{\partial z^2_i}{\partial W^2_{ij}} \<br>&amp;=  -(\frac{y_i}{a^2_i}+\frac{1-y_i}{1-a^2_i})a^2_i(1 - a^2_i)a^1_j \<br>&amp;= (a^2_i-y_i)a^1_j \ \<br>\frac{\partial L}{\partial W^1_{ij}} &amp;= …<br>\end{aligned}<br>$$</p>
+<hr>
+<h3 id="2-矩阵形式推导"><a href="#2-矩阵形式推导" class="headerlink" title="2.矩阵形式推导"></a>2.矩阵形式推导</h3><img title="" src="https://cdn.jsdelivr.net/gh/kopper-xdu/image/nn1.svg" srcset="/img/loading.gif" lazyload style="zoom: 50%;" >
+
+<h4 id="链式求导法"><a href="#链式求导法" class="headerlink" title="链式求导法"></a>链式求导法</h4><p>$$<br>\begin{aligned}<br>L &amp;= \sum_{i,j}-\pmb{Y_{ij}}\log \pmb{A^2_{ij}} - \sum_{i,j}(1-\pmb{Y_{ij}})\log (1-\pmb{A^2_{ij}})\ \<br>\frac{\partial L}{\partial \pmb{Z^2_{ij}}} &amp;= -\pmb{Y_{ij}}(1-\pmb{A^2_{ij}}) - (1-\pmb{Y_{ij}})\frac{1}{1-\pmb{A^2_{ij}}}\pmb{A_{ij}}(1-\pmb{A^2_{ij}})\<br>\frac{\partial L}{\partial \pmb{Z^2}} &amp;= -\pmb{Y}\odot (1-\pmb{A^2}) - (1-\pmb{Y})\odot \pmb{A^2}\<br>&amp;= \pmb{A^2} - \pmb{Y}\<br>\frac{\partial L}{\partial \pmb{W_2}} &amp;=\frac{\partial L}{\partial \pmb{Z^2}}\frac{\partial \pmb{Z^2}}{\partial \pmb{W^2}}\<br>&amp;=(\pmb{A^2} - \pmb{Y})<br>\end{aligned}<br>$$</p>
+<h4 id="微分法"><a href="#微分法" class="headerlink" title="微分法"></a>微分法</h4><p>相关运算性质：</p>
+<p>$$<br>\begin{aligned}<br>&amp;tr(A^T(B\odot C)) = tr((A\odot B)^TC) = \sum_{i,j}A_{ij}B_{ij}C_{ij}\<br>&amp;d\sigma (Z) = \sigma (Z)\odot (1-\sigma (Z))dZ\<br>&amp;d(AB)=(dA)B + AdB\<br>&amp;d(c_1A+c_2B) = c_1dA+c_2dB\<br>&amp;dA^T = (dA)^T\<br>&amp;tr(A^TB) = \sum_{i,j}A_{ij}B_{ij}<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>\pmb{L} &amp;= -\pmb{Y}\odot \log \pmb{A^2} - (1 - \pmb{Y})\odot \log (1 - \pmb{A^2}) \<br>L &amp;= tr(-\pmb{Y^T}\log \pmb{A^2}) - tr((1-\pmb{Y})^T\log (\pmb{1-A^2})) \ \<br>dL &amp;= tr(d(-\pmb{Y^T}\log \pmb{A^2})) - tr(d((1 - \pmb{Y})^T\log (1 - \pmb{A^2}))) \<br>&amp;= tr(-d(\pmb{Y^T})\log \pmb{A^2} - \pmb{Y^T}d\log \pmb{A^2}) - tr(d((1 - \pmb{Y})^T)\log (1-\pmb{A^2})+(1-\pmb{Y})^Td\log (1-\pmb{A^2}))\<br>&amp;= tr(-\pmb{Y^T}(\frac{1}{\pmb{A^2}}\odot d\pmb{A^2})) + tr((1-\pmb{Y})^T\frac{1}{1-\pmb{A^2}}\odot d\pmb{A^2})\<br>&amp;=tr((1-\pmb{Y})^T\frac{1}{1-\pmb{A^2}}\odot d\pmb{A^2}) -tr(\pmb{Y^T}(\frac{1}{\pmb{A^2}}\odot d\pmb{A^2}))\<br>&amp;=tr(((1-\pmb{Y})\odot \frac{1}{1-\pmb{A^2}})^Td\pmb{A^2}) - tr((\pmb{Y}\odot \frac{1}{\pmb{A^2}})^Td\pmb{A^2})\<br>&amp;=tr(((1-\pmb{Y})\odot \frac{1}{1-\pmb{A^2}}\odot \pmb{A^2}\odot(1 - \pmb{A^2}))^T d\pmb{Z^2}) - tr((\pmb{Y}\odot \frac{1}{\pmb{A^2}}\odot \pmb{A^2}\odot(1 - \pmb{A^2}))^Td\pmb{Z^2})\<br>&amp;=tr(((1-\pmb{Y})\odot \pmb{A^2})^Td\pmb{Z^2}) - tr((\pmb{Y}\odot (1-\pmb{A^2}))^Td\pmb{Z^2})\<br>&amp;=tr((\pmb{A^2} - \pmb{Y})^Td\pmb{Z^2})\ \<br>&amp;\frac{\partial L}{\partial \pmb{Z^2}} = \pmb{A^2} - \pmb{Y}\ \<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>dL &amp;= tr((\pmb{A^2} - \pmb{Y})^T(d\pmb{A^1})\pmb{(W^2)}^T) + tr((\pmb{A^2} - \pmb{Y})^T\pmb{A^1}d\pmb{(W^2)}^T)\<br>&amp;=tr(\pmb{(W^2)}^T(\pmb{A^2} - \pmb{Y})^Td\pmb{A^1}) + tr(((\pmb{A^2} - \pmb{Y})^T\pmb{A^1})^Td\pmb{W^2})\<br>&amp;=tr((\pmb{W^2})^T(\pmb{A^2}-\pmb{Y})^T\pmb{A^1}\odot (1-\pmb{A^1})\odot d\pmb{Z^1}) + tr(((\pmb{A^2} - \pmb{Y})^T\pmb{A^1})^Td\pmb{W^2})\<br>&amp;=tr(((\pmb{A^2} - \pmb{Y})\pmb{W^2})^T\pmb{A^1}\odot (1-\pmb{A^1})\odot d\pmb{Z^1}) + tr(((\pmb{A^2} - \pmb{Y})^T\pmb{A^1})^Td\pmb{W^2})\<br>&amp;=tr(((\pmb{A^2}-\pmb{Y})\pmb{W^2}\odot \pmb{A^1}\odot (1-\pmb{A^1}))^Td\pmb{Z^1}) + tr(((\pmb{A^2} - \pmb{Y})^T\pmb{A^1})^Td\pmb{W^2})\<br>&amp;=tr(((\pmb{A^2}-\pmb{Y})\pmb{W^2}\odot \pmb{A^1}\odot (1-\pmb{A^1}))^T((d\pmb{X})\pmb{W^1}^T+\pmb{X}d(\pmb{W^1})^T) + tr(((\pmb{A^2} - \pmb{Y})^T\pmb{A^1})^Td\pmb{W^2})\<br>&amp;=tr(((\pmb{A^2}-\pmb{Y})\pmb{W^2}\odot \pmb{A^1}\odot (1-\pmb{A^1}))^T\pmb{X}d(\pmb{W^1})^T)+tr(((\pmb{A^2} - \pmb{Y})^T\pmb{A^1})^Td\pmb{W^2})\<br>&amp;=tr((((\pmb{A^2}-\pmb{Y})\pmb{W^2}\odot \pmb{A^1}\odot (1-\pmb{A^1}))^T\pmb{X})^Td\pmb{W^1}) +tr(((\pmb{A^2} - \pmb{Y})^T\pmb{A^1})^Td\pmb{W^2})\ \<br>&amp;\frac{\partial L}{\partial \pmb{W^2}} = (\pmb{A^2} - \pmb{Y})^T\pmb{A^1}\<br>&amp;\frac{\partial L}{\partial \pmb{W^1}} = ((\pmb{A^2}-\pmb{Y})\pmb{W^2}\odot \pmb{A^1}\odot (1-\pmb{A^1}))^T\pmb{X}<br>\end{aligned}<br>$$</p>
 
                 
               </div>
@@ -290,8 +319,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>理解 diffusion model</div>
-      <div>http://example.com/2022/08/19/理解-diffusion-model/</div>
+      <div>神经网络反向传播算法推导</div>
+      <div>http://example.com/2022/09/01/神经网络反向传播算法推导/</div>
     </div>
     <div class="license-meta">
       
@@ -303,7 +332,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 19, 2022</div>
+          <div>September 1, 2022</div>
         </div>
       
       
@@ -333,15 +362,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/09/01/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95%E6%8E%A8%E5%AF%BC/" title="神经网络反向传播算法推导">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">神经网络反向传播算法推导</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/08/19/%E7%90%86%E8%A7%A3-diffusion-model/" title="理解 diffusion model">
+                        <span class="hidden-mobile">理解 diffusion model</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
