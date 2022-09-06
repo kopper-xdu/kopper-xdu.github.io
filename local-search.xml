@@ -60,7 +60,7 @@
     <link href="/2022/08/19/%E7%90%86%E8%A7%A3%20Denoising-Diffusion-Probability-Model/"/>
     <url>/2022/08/19/%E7%90%86%E8%A7%A3%20Denoising-Diffusion-Probability-Model/</url>
     
-    <content type="html"><![CDATA[<h1 id="denoising-diffusion-probability-model">Denoising DiffusionProbability Model</h1><h3 id="diffusion-process">diffusion process</h3><h3 id="reverse-process">reverse process</h3><h3 id="parameter-estimate">parameter estimate</h3><h4 id="maximum-likelihood">maximum likelihood</h4><h4 id="simple-objective">simple objective</h4><h3 id="conclusion">conclusion</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="denoising-diffusion-probability-model">Denoising DiffusionProbability Model</h1><h3 id="扩散过程">扩散过程</h3><h3 id="生成过程">生成过程</h3><h3 id="参数估计">参数估计</h3><h4 id="极大似然">极大似然</h4><h4 id="简化目标函数">简化目标函数</h4><h3 id="总结">总结</h3>]]></content>
     
     
     
