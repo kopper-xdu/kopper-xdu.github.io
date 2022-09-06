@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>理解 Denoising Diffusion Implicit Model</title>
+    <link href="/2022/09/06/%E7%90%86%E8%A7%A3-Denoising-Diffusion-Implicit-Model/"/>
+    <url>/2022/09/06/%E7%90%86%E8%A7%A3-Denoising-Diffusion-Implicit-Model/</url>
+    
+    <content type="html"><![CDATA[<h1 id="denoising-diffusion-implicit-model">Denoising Diffusion ImplicitModel</h1><h3 id="建模思路">建模思路</h3><h3 id="扩散过程">扩散过程</h3><h3 id="生成过程">生成过程</h3><h3 id="加速采样">加速采样</h3><h3 id="与ddpm的联系">与DDPM的联系</h3>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>机器学习系列之EM算法</title>
     <link href="/2022/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E4%B9%8BEM%E7%AE%97%E6%B3%95/"/>
     <url>/2022/09/04/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97%E4%B9%8BEM%E7%AE%97%E6%B3%95/</url>
@@ -43,11 +56,11 @@
   
   
   <entry>
-    <title>理解 diffusion model</title>
-    <link href="/2022/08/19/%E7%90%86%E8%A7%A3-diffusion-model/"/>
-    <url>/2022/08/19/%E7%90%86%E8%A7%A3-diffusion-model/</url>
+    <title>理解 Denoising Diffusion Probability Model</title>
+    <link href="/2022/08/19/%E7%90%86%E8%A7%A3%20Denoising-Diffusion-Probability-Model/"/>
+    <url>/2022/08/19/%E7%90%86%E8%A7%A3%20Denoising-Diffusion-Probability-Model/</url>
     
-    <content type="html"><![CDATA[<p>挖个坑，讲讲自己对 diffusion 模型的理解</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="denoising-diffusion-probability-model">Denoising DiffusionProbability Model</h1><h3 id="diffusion-process">diffusion process</h3><h3 id="reverse-process">reverse process</h3><h3 id="parameter-estimate">parameter estimate</h3><h4 id="maximum-likelihood">maximum likelihood</h4><h4 id="simple-objective">simple objective</h4><h3 id="conclusion">conclusion</h3>]]></content>
     
     
     
