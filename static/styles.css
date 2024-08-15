@@ -242,10 +242,12 @@ header::after {
 
 .inter-and-edu {
     display: flex;
+    padding-right: 6rem;
 }
 
 .inter-and-edu .interests {
-    margin-right: 10rem;
+    /* margin-right: 10rem; */
+    margin-right: auto;
 }
 
 .inter-and-edu .interests-text {
@@ -521,6 +523,10 @@ header::after {
 
     .container-1 .interests {
         margin-right: auto;
+    }
+
+    .container-1 .inter-and-edu {
+        padding-right: 2rem;
     }
 
     .container-2 .body-2{
