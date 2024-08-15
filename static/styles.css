@@ -1,0 +1,557 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    padding-top: 70px;
+}
+
+header {
+    background-color: #272935;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 6px; 
+    background: linear-gradient(#373945, #272935); 
+    z-index: -1; 
+}
+
+.navbar {
+    padding: 0 1rem;
+}
+
+.sub-1 {
+    height: 70px;
+    padding: 0 1rem;
+    margin-left: 11rem;
+    margin-right: 11rem;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    margin-right : auto;
+}
+
+.navbar .brand a {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-item span {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* .navbar-right {
+    align-items: center;
+} */
+
+.nav-actions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-action {
+    margin-left: 1rem;
+}
+
+.nav-action a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.sub-2 {
+    height: 70px;
+    padding: 0 1rem;
+    /* margin-left: 11rem;
+    margin-right: 11rem; */
+    display: none;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sub-2-mid {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sub-2-left {
+    cursor: pointer;
+}
+
+/* .sub-2-left {
+    margin-right: auto;
+}
+
+.sub-2-right {
+    margin-left: auto;
+} */
+
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #272935;
+    width: 100%;
+    z-index: 1000;
+    padding: 0px 30px;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease; /* 过渡效果，0.5秒内平滑改变高度 */
+}
+
+.dropdown-menu span {
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.container-1 {
+    /* padding: 9em 16em 5em 16em; */
+    padding: 7em 0em 5em 0em;
+    /* box-sizing: border-box; */
+    background-color: #272935;
+}
+
+.container-1 .body-1 {
+    display: flex;
+    margin: 0 13em 0 16em;
+    padding: 0 1.5em 0 1.5em;
+}
+
+.container-1 .section-title {
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 350;
+}
+
+.container-1 .section-content {
+    margin-top: 20px;
+    margin-left: 2px;
+}
+
+.profile {
+    margin-right : 5em;
+    text-align: center;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 270px;
+    height: 270px;
+    margin-bottom: 20px;
+}
+
+.profile p {
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile .name {
+    margin: 0px 0;
+    font-size: 2em;
+    font-weight: 550;
+}
+
+.profile .school {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #9c9da2;
+    white-space: nowrap;
+}
+
+.profile .university {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #bbdefb;
+    cursor: pointer;
+}
+
+.profile .university:hover {
+    text-decoration: underline;
+  }
+
+.icons {
+    margin-top: 12px;
+}
+
+.profile .icons a {
+    font-size: 40px;
+    margin: 0 5px;
+    text-decoration: none;
+    /* color: #fff; */
+    color: #bbdefb;
+
+}
+
+.container-1 .section-content .bio-text {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 1.2em;
+}
+
+.inter-and-edu {
+    display: flex;
+}
+
+.inter-and-edu .interests {
+    margin-right: 10em;
+}
+
+.inter-and-edu .interests-text {
+    margin-bottom: 0.6em;
+}
+
+.inter-and-edu .interests .ul-interests,  .education .ul-edu {
+    margin-left: 1.2em;
+}
+
+.education .edu-text {
+    margin-bottom: 0.6em;
+}
+
+.education ul p {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.container-1 .ul-edu .school {
+    margin-left: 2.4em;
+    font-size: 0.85em;
+    color: #9c9da2;
+}
+
+.container-2 {
+    /* padding: 5em 14em; */
+    padding: 5em 0 5em 0;
+    background-color: #23252f;
+}
+
+.container-2 .body-2 {
+    display: flex;
+    margin: 0 14em 0 14em;
+    padding: 0 1.5em 0 1.5em;
+    /* align-items: center; */
+}
+
+.container-2 .section-title {
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 350;
+    margin-right: 5em;
+    text-align: center;
+}
+
+.container-3 {
+    /* padding: 5em 14em; */
+    padding: 5em 0 5em 0;
+    /* padding-right: 8em; */
+    background-color: #272935;
+}
+
+.container-3 .body-3 {
+    display: flex;
+    margin: 0 12.5em 0 14em;
+    padding: 0 1.5em 0 1.5em;
+}
+
+.container-3 .section-title {
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 350;
+    /* width: 400px; */
+    margin-right: 1em;
+}
+
+.container-3 .section-title .scholar {
+    font-size: 23px;
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+.container-3 .section-content .filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.container-3 .section-content .filter-btn {
+    padding: 10px 20px;
+    background-color: #1565c0;
+    border: 1px solid #1565c0;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.container-3 .section-content .filter-btn:hover {
+    background-color: #217ee7;
+    transform: scale(1.05);
+}
+
+.container-3 .section-content .filter-btn.active {
+    background-color: #104d92;
+    border-color: #104d92;
+}
+
+
+.container-3 .section-content .publication {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-right: 0;
+    margin-bottom: 20px;
+}
+
+.container-3 .section-content .publication .publication-content {
+    max-width: 58%;
+}
+
+.container-3 .section-content .publication img {
+    max-width: 40%;
+    height: auto;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    background-color: white;
+    align-self: center; /* 确保图片在父元素中垂直居中 */
+    
+}
+
+.container-3 .section-content .links a {
+    margin-right: 10px;
+    color: #4e9bff;
+    text-decoration: none;
+}
+
+.container-3 .section-content .links a:hover {
+    text-decoration: underline;
+}
+
+.container-4 {
+    /* gap: 3em; */
+    /* padding: 5em 14em; */
+    padding: 5em 0 5em 0;
+    background-color: #23252f;
+}
+
+.container-4 .body-4 {
+    display: flex;
+    margin: 0 14em 0 14em;
+    padding: 0 1.5em 0 1.5em;
+}
+
+.container-4 .section-title {
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 350;
+    width: 400px;
+    margin-right: 0em;
+}
+
+.container-4 .section-content .exp {
+    display: flex;   
+}
+
+.container-4 .right {
+    background-color: #343a40;
+    padding: 30px;
+    padding-bottom: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.container-4 .right .up {
+    display: flex;   
+    align-items: flex-start;
+}
+
+.container-4 .right .up img{
+    max-width: 7%;
+    height: auto;
+    margin-right: 6px;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+    /* background-color: white; */
+    /* align-self: center; 确保图片在父元素中垂直居中 */
+}
+
+.container-4 .right .position {
+    font-size: 20px;
+    margin: 5px;
+}
+
+.container-4 .right .danwei {
+    margin: 5px;
+    /* text-decoration: none; */
+}
+
+.container-4 .right .time {
+    margin: 5px;
+}
+
+.container-5 {
+    /* display: flex; */
+    /* gap: 3em; */
+    /* padding: 5em 14em; */
+    padding: 5em 0 5em 0;
+    background-color: #272935;
+}
+
+.container-5 .body-5 {
+    display: flex;
+    margin: 0 14em 0 14em;
+    padding: 0 1.5em 0 1.5em;
+}
+
+.container-5 .section-title {
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 350;
+    width: 200px;
+    margin-right: 4em;
+}
+
+.container-5 .contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.6em;
+    margin-top: 0.3em;
+}
+
+.container-5 i {
+    margin-top: 0.18em;
+    font-size: 1.6em;
+    margin-right: 0.5em;
+}
+
+
+@media (max-width: 900px) {
+    .sub-2 {
+        display: flex;
+    }
+
+    .sub-1 {
+        display: none;
+    }
+
+    .container-1 .body-1 {
+        display: block;
+        padding: 0 4em 0 4em;
+    }
+
+    .container-1 .profile {
+        margin-right : 0;
+        margin-bottom: 2.5em;
+    }
+
+    .container-1 .interests {
+        margin-right: auto;
+    }
+
+    .container-2 .body-2{
+        display: block;
+    }
+
+    .container-2 .section-title {
+        margin-right: 0;
+    }
+
+    .container-3 .body-3{
+        display: block;
+        padding: 0 4em 0 4em;
+    }
+    .container-3 .section-title {
+        margin-right: 0;
+        text-align: center;
+        margin-bottom: 0.5em;
+    }
+    .container-3 .section-content .bbb {
+        display: flex;
+        justify-content: center; 
+    }
+
+    .container-3 .section-content .publication {
+        display: grid;
+        place-items: center;
+        /* text-align: center; */
+    }
+
+    .container-3 .section-content .publication .publication-content {
+        max-width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .container-3 .section-content .publication img {
+        max-width: 100%;
+    }
+
+    .container-4 .body-4{
+        display: grid;
+        place-items: center;
+        /* margin: 0 4em 0 4em; */
+        padding: 0 5.5em 0 5.5em;
+    }
+
+    .container-4 .section-title {
+        margin-right: 0;
+        text-align: center;
+        margin-bottom: 0.5em;
+    }
+
+    .container-5 .body-5 {
+        display: grid;
+        place-items: center;
+        /* margin: 0 4em 0 4em; */
+        padding: 0 5.5em 0 5.5em;
+
+    }
+
+    .container-5 .section-title {
+        margin-right: 0;
+        text-align: center;
+        /* margin-bottom: 0.5em; */
+    }
+}

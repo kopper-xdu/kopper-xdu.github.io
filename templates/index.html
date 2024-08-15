@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xijun Wang</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="sub-1">
+        <div class="navbar-left">
+          <div class="brand">
+            <!-- <span onclick="scrollToView('home')">Home</span> -->
+            <a href="link">Xijun Wang</a>
+          </div>
+          <div aria-label="Main Menu">
+            <ul class="nav-menu">
+              <li class="nav-item"><span onclick="scrollToView('home')">Home</span></li>
+              <li class="nav-item"><span onclick="scrollToView('news')">News</span></li>
+              <li class="nav-item"><span onclick="scrollToView('pub')">Publications</span></li>
+              <li class="nav-item"><span onclick="scrollToView('experience')">Experience</span></li>
+              <li class="nav-item"><span onclick="scrollToView('contact')">Contact</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar-right">
+          <ul class="nav-actions">
+            <li class="nav-action">
+              <a href="https://scholar.google.com/citations?user=ccQh444AAAAJ">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </a>
+            </li>
+            <li class="nav-action">
+              <a href="https://github.com/kopper-xdu">
+                <i class="fa-brands fa-github big-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sub-2">
+        <div class="sub-2-left">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="sub-2-mid brand">
+            <a href="#">Xijun Wang</a>
+        </div>
+        <div class="sub-2-right">
+          <ul class="nav-actions">
+            <li class="nav-action">
+              <a href="https://scholar.google.com/citations?user=ccQh444AAAAJ">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </a>
+            </li>
+            <li class="nav-action">
+              <a href="https://github.com/kopper-xdu">
+                <i class="fa-brands fa-github big-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="dropdown-menu">
+      <p><span onclick="scrollToView('home')">Home</span></p>
+      <p><span onclick="scrollToView('news')">News</span></p>
+      <p><span onclick="scrollToView('pub')">Publications</span></p>
+      <p><span onclick="scrollToView('experience')">Experience</span></p>
+      <p><span onclick="scrollToView('contact')">Contact</span></p>
+  </div>
+
+  <div id="home" class="container-1">
+    <div class="body-1">
+      <div class="profile">
+        <img src="static/1.jpg" alt="Portrait of Xijun Wang">
+        <p class="name">Xijun Wang</p>
+        <p class="school">School of Artificial Intelligence</p>
+        <p class="university">Xidian University</p>
+        <div class="icons">
+          <a href="mailto:xijunwang00@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a href="https://scholar.google.com/citations?user=ccQh444AAAAJ">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </a>
+          <a href="https://github.com/kopper-xdu">
+            <i class="fa-brands fa-github big-icon"></i>
+          </a>
+          <!-- <a href="#">
+            <i class="ai ai-cv big-icon"></i>
+          </a> -->
+        </div>
+      </div>
+      <div class="biography">
+        <div class="section-title">Biography</div>
+        <div class="section-content">
+          <p class="bio-text">Hello! My name is Xijun Wang, an undergraduate student at Xidian University. If you are
+            interested in me and
+            seek for cooperation, feel free to contact me.</p>
+          <div class="inter-and-edu">
+            <div class="interests">
+              <div class="interests-text" style="font-size: 1.3em;"><strong>Interests</strong></div>
+              <div class="ul-interests">
+                  <div><i class="fa-solid fa-book-open" style="margin: 0 0.7em 0.5em 0;"></i>Deep Learning</div>
+                  <div><i class="fa-solid fa-book-open" style="margin: 0 0.7em 0.5em 0;"></i>Computer Vision</div>
+                  <div><i class="fa-solid fa-book-open" style="margin: 0 0.7em 0.5em 0;"></i>Generative Models</div>
+              </div>
+            </div>
+            <div class="education">
+              <div class="edu-text" style="font-size: 1.3em;"><strong>Education</strong></div>
+              <div class="ul-edu fa-ul">
+                <div><i class="fa-solid fa-graduation-cap" style="margin: 0 0.7em 0.5em 0;"></i>BEng in Artificial Intelligence, 2021 - 2025</div>
+                <div class="school">Xidian University</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="news" class="container-2">
+    <div class="body-2">
+      <div class="section-title">News</div>
+      <div class="section-content" style="text-align: center;">
+        <ul>
+          <li>
+            <p><strong>2023.12</strong>: 🎉 One paper (Adv-Diffusion) is accepted by AAAI 2024.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="pub" class="container-3">
+    <div class="body-3">
+      <div class="section-title">
+        Publications
+        <!-- <div class="scholar">Visit my Google Scholar page for a comprehensive listing!</div> -->
+      </div>
+      <div class="section-content">
+        <div class="bbb">
+          <div class="filter">
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="computer-vision">Computer Vision</button>
+            <!-- <button class="filter-btn" data-category="others">Others</button> -->
+          </div>
+        </div>
+        <div class="publications">
+          <div class="publication" data-category="computer-vision">
+            <div class="publication-content">
+              <h2>Adv-Diffusion: Imperceptible Adversarial Face Identity Attack via Latent Diffusion Model</h2>
+              <p>AAAI 2024</p>
+              <p>Decheng Liu*, <strong>Xijun Wang</strong>*, Chunlei Peng<sup>†</sup>, Nannan Wang, Ruimin Hu, Xinbo Gao
+              </p>
+              <div class="links">
+                <a href="#">Code</a>
+                <a href="#">Arxiv</a>
+              </div>
+            </div>
+            <img src="static/adv-diff.png" alt="Adv-Diffusion Project Image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="experience" class="container-4">
+    <div class="body-4">
+      <div class="section-title">Experience</div>
+      <div class="section-content">
+        <div class="exp">
+          <div class="left-1"></div>
+          <div class="right">
+            <div class="up">
+              <img src="static/org-shailab.svg" alt="Shanghai AI Lab Logo">
+  
+              <div>
+                <div class="position"><strong>Research Intern</strong></div>
+                <div class="danwei">
+                  <a href="https://www.shlab.org.cn/" target="_blank">
+                    Shanghai AI Lab
+                  </a>
+                </div>
+                <div class="time">May 2024 – Present, remote</div>
+              </div>
+            </div>
+            <div class="down">
+              <ul>
+                <li>Conducting research on video generation.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="container-5">
+    <div class="body-5">
+      <div class="section-title">Contact</div>
+      <div class="section-content">
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:xijunwang00@gmail.com" style="color: #bbdefb;">xijunwang00@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
