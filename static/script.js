@@ -43,6 +43,10 @@ function remToPx(rem) {
 }
 
 function adjustNavbarMargin() {
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+        return 0;
+    }
+    
     const viewportWidth = screen.availWidth;
     const newWidth = document.body.clientWidth;
     const widthReduction = viewportWidth - newWidth;
