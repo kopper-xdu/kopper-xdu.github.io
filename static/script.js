@@ -67,10 +67,13 @@ function adjustNavbarMargin() {
         return 0;
     }
     var widthReduction = viewportWidth - newWidth;
+    if (viewportWidth < 1707)
+        widthReduction += 1707 - viewportWidth;
+    // console.log(viewportWidth)
 
     const marginAdjustment = widthReduction / 2; // 每边减少的 margin 值
 
-    const initMargin = remToPx(11);
+    const initMargin = remToPx(7.5);
     const navbar = document.querySelector('.sub-1');
 
     if (initMargin - marginAdjustment >= 0) {
@@ -81,10 +84,10 @@ function adjustNavbarMargin() {
         navbar.style.marginLeft = `0`;
         navbar.style.marginRight = `0`;
     }
-
     
-    const initMarginLeft = remToPx(16);
-    const initMarginRight = remToPx(13);
+    
+    const initMarginLeft = remToPx(12.5);
+    const initMarginRight = remToPx(9.5);
     const body_1 = document.querySelector('.container-1 .body-1');
     if (initMarginLeft - marginAdjustment >= 0) {
         body_1.style.marginLeft = `${initMarginLeft - marginAdjustment}px`;
@@ -104,7 +107,7 @@ function adjustNavbarMargin() {
     }
     
 
-    const initMargin3 = remToPx(14);
+    const initMargin3 = remToPx(10.5);
     const body_2 = document.querySelector('.container-2 .body-2');
     if (initMargin3 - marginAdjustment >= 0) {
         body_2.style.marginLeft = `${initMargin3 - marginAdjustment}px`;
@@ -115,8 +118,8 @@ function adjustNavbarMargin() {
         body_2.style.marginRight = `0px`;
     }
 
-    const initMarginLeft4 = remToPx(14);
-    const initMarginRight4 = remToPx(12.5);
+    const initMarginLeft4 = remToPx(10.5);
+    const initMarginRight4 = remToPx(9);
     const body_3 = document.querySelector('.container-3 .body-3');
     if (initMarginLeft4 - marginAdjustment >= 0) {
         body_3.style.marginLeft = `${initMarginLeft4 - marginAdjustment}px`;
@@ -133,7 +136,7 @@ function adjustNavbarMargin() {
         body_3.style.marginRight = `0px`;
     }
 
-    const initMargin5 = remToPx(14);
+    const initMargin5 = remToPx(10.5);
     const body_4 = document.querySelector('.container-4 .body-4');
     if (initMargin5 - marginAdjustment >= 0) {
         body_4.style.marginLeft = `${initMargin5 - marginAdjustment}px`;
@@ -144,7 +147,7 @@ function adjustNavbarMargin() {
         body_4.style.marginRight = `0px`;
     }
 
-    const initMargin6 = remToPx(14);
+    const initMargin6 = remToPx(10.5);
     const body_5 = document.querySelector('.container-5 .body-5');
     if (initMargin6 - marginAdjustment >= 0) {
         body_5.style.marginLeft = `${initMargin6 - marginAdjustment}px`;
