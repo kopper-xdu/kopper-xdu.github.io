@@ -43,13 +43,30 @@ function remToPx(rem) {
 }
 
 function adjustNavbarMargin() {
-    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-        return 0;
-    }
-    
     const viewportWidth = screen.availWidth;
     const newWidth = document.body.clientWidth;
-    const widthReduction = viewportWidth - newWidth;
+    // console.log(viewportWidth, newWidth)
+    if (newWidth <= 900) {
+        document.querySelector('.sub-1').style.marginLeft = '0';
+        document.querySelector('.sub-1').style.marginRight = '0';
+
+        document.querySelector('.container-1 .body-1').style.marginLeft = '0';
+        document.querySelector('.container-1 .body-1').style.marginRight = '0';
+
+        document.querySelector('.container-2 .body-2').style.marginLeft = '0';
+        document.querySelector('.container-2 .body-2').style.marginRight = '0';
+
+        document.querySelector('.container-3 .body-3').style.marginLeft = '0';
+        document.querySelector('.container-3 .body-3').style.marginRight = '0';
+
+        document.querySelector('.container-4 .body-4').style.marginLeft = '0';
+        document.querySelector('.container-4 .body-4').style.marginRight = '0';
+
+        document.querySelector('.container-5 .body-5').style.marginLeft = '0';
+        document.querySelector('.container-5 .body-5').style.marginRight = '0';
+        return 0;
+    }
+    var widthReduction = viewportWidth - newWidth;
 
     const marginAdjustment = widthReduction / 2; // 每边减少的 margin 值
 
@@ -61,8 +78,8 @@ function adjustNavbarMargin() {
         navbar.style.marginRight = `${initMargin - marginAdjustment}px`;
     }
     else {
-        navbar.style.marginLeft = `0px`;
-        navbar.style.marginRight = `0px`;
+        navbar.style.marginLeft = `0`;
+        navbar.style.marginRight = `0`;
     }
 
     
@@ -147,7 +164,7 @@ window.addEventListener('resize', adjustNavbarMargin);
 document.querySelector('.sub-2-left').addEventListener('click', function() {
     var dropdownMenu = document.querySelector('.dropdown-menu');
     // dropdownMenu.style.display = dropdownMenu.style.display == 'block' ? 'none' : 'block';
-    dropdownMenu.style.height = dropdownMenu.style.height == '200px' ? '0' : '200px';
+    dropdownMenu.style.height = dropdownMenu.style.height == '20rem' ? '0' : '20rem';
 });
 
 function scrollToView (id) {
