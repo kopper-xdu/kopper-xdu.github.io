@@ -3,14 +3,12 @@ html {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: white;
     padding-top: 3em;
-    /* width:100%;
-    overflow-x:hidden; */
 }
 
 header {
@@ -19,6 +17,7 @@ header {
     width: 100%;
     z-index: 1000;
     top: 0;
+    font-family: Arial, sans-serif;
 }
 
 header::after {
@@ -59,7 +58,12 @@ header::after {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
+
+.navbar .brand a:hover {
+    color: #bbdefb; 
+  }
 
 .nav-menu {
     list-style: none;
@@ -231,7 +235,14 @@ header::after {
     text-decoration: none;
     /* color: #fff; */
     color: #bbdefb;
+}
 
+.profile .icons i {
+    transition: transform 0.15s ease;
+}
+
+.profile .icons i:hover {
+    transform: scale(1.1);
 }
 
 .container-1 .section-content .bio-text {
@@ -407,7 +418,7 @@ header::after {
     padding: 1.8rem;
     padding-bottom: 2.5rem;
     box-shadow: 0 0.2rem 0.4rem rgba(0,0,0,0.1);
-    border-radius: 1rem;
+    border-radius: 0.3rem;
 }
 
 .container-4 .right .up {
@@ -422,13 +433,18 @@ header::after {
 }
 
 .container-4 .right .position {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     margin: 0.5rem;
+    margin-top: 0;
 }
 
 .container-4 .right .danwei {
     margin: 0.5rem;
-    /* text-decoration: none; */
+}
+
+.container-4 .right .danwei a {
+    color: #bbdefb; 
+    text-decoration: none;
 }
 
 .container-4 .right .time {
@@ -465,10 +481,13 @@ header::after {
 
 .container-5 i {
     margin-top: 0.18em;
-    font-size: 1.6em;
+    font-size: 1.5em;
     margin-right: 0.5em;
 }
 
+.container-5 a {
+    text-decoration: none;
+}
 
 /* @media (max-width: 500px) {
     html {
